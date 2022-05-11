@@ -19,38 +19,38 @@ class _LoginPgState extends State<LoginPg> {
   Widget build(BuildContext context) {
     return Scaffold(backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text("PRESCRIBLE"),
+          title: Center(child: Text("PRESCRIBLE")),
         ),
         body:SingleChildScrollView(
           child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [Container(height: 150,width: 150,child: Image.asset("assets/images/Logo.png"),),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 28),
               child: TextField(
                 controller: username,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
                   labelText: 'Username',
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 28),
               child: TextField(
                 controller: passwrd,
                 obscureText: true,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
                   labelText: 'Password',
                 ),
               ),
             ),
-            Row(
+            Row(mainAxisAlignment: MainAxisAlignment.center,
               children: [Title(color: Colors.green, child: Text("New User?")),
                 TextButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
                         return SignUpPg();
                       }));
                     },
