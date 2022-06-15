@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:prescrible/Pages/account_info.dart';
+import 'package:prescrible/Pages/doc_info.dart';
 
 import 'Pages/homepage.dart';
 import 'Pages/login_page.dart';
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(backgroundColor: Colors.white,
         primarySwatch: Colors.green,
       ),
-      home: const Hm(),
+      home: const AccountDetails(),
     );
   }
 }
