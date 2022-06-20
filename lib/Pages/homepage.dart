@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:floating_action_bubble/floating_action_bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+import 'package:prescrible/Pages/account_info.dart';
 import 'package:prescrible/Pages/doc_info.dart';
 
 final imageList = [
@@ -87,14 +88,36 @@ class _HmState extends State<Hm> with SingleTickerProviderStateMixin {
         children: [
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Colors.green,
             ),
             child: Column(
               children: [
-                CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      "https://cdn.imgbin.com/3/12/17/imgbin-computer-icons-avatar-user-login-avatar-man-wearing-blue-shirt-illustration-mJrXLG07YnZUc2bH5pGfFKUhX.jpg"),
-                  radius: 40,
+                Stack(
+                  alignment: Alignment.topRight,
+                  children: [
+                    Container(
+                      height: 80,
+                      width: 80,
+                      child: Image.asset(
+                        "assets/images/Profile_Logo.png",
+                      ),
+                    ),
+                    CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 15,
+                      child: IconButton(
+                        padding: EdgeInsets.zero,
+                        icon: Icon(Icons.edit_outlined),
+                        color: Colors.green,
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AccountDetails()));
+                        },
+                      ),
+                    ),
+                  ],
                 ),
                 Text(
                   "Name",
@@ -146,35 +169,40 @@ class _HmState extends State<Hm> with SingleTickerProviderStateMixin {
             child: Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(6),
                   child: Container(
-                    height: 150,
-                    width: 150,
-                    color: Colors.green,
+                    decoration: BoxDecoration(
+                        color: Colors.green, shape: BoxShape.circle),
+                    height: 120,
+                    width: 120,
+                    //color: Colors.green,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(6),
                   child: Container(
-                    height: 150,
-                    width: 150,
-                    color: Colors.blue,
+                    decoration: BoxDecoration(
+                        color: Colors.grey, shape: BoxShape.circle),
+                    height: 120,
+                    width: 120,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(6),
                   child: Container(
-                    height: 150,
-                    width: 150,
-                    color: Colors.green,
+                    decoration: BoxDecoration(
+                        color: Colors.green, shape: BoxShape.circle),
+                    height: 120,
+                    width: 120,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(6),
                   child: Container(
-                    height: 150,
-                    width: 150,
-                    color: Colors.blue,
+                    decoration: BoxDecoration(
+                        color: Colors.grey, shape: BoxShape.circle),
+                    height: 120,
+                    width: 120,
                   ),
                 )
               ],
@@ -185,7 +213,7 @@ class _HmState extends State<Hm> with SingleTickerProviderStateMixin {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "Your Prescription",
+                  "Your Prescriptions",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -231,7 +259,7 @@ class _HmState extends State<Hm> with SingleTickerProviderStateMixin {
                 _animationController!.reverse();
               },
             ),
-            Bubble(
+            /*Bubble(
               title: "Gallery",
               iconColor: Colors.white,
               bubbleColor: Colors.blue,
@@ -240,7 +268,7 @@ class _HmState extends State<Hm> with SingleTickerProviderStateMixin {
               onPress: () {
                 _animationController!.reverse();
               },
-            )
+            )*/
           ],
           animation: _animation!,
           onPress: () => _animationController!.isCompleted

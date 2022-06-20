@@ -54,13 +54,13 @@ class _LoginPgState extends State<LoginPg> {
                         return SignUpPg();
                       }));
                     },
-                    child: Text("LogIn",style: TextStyle(color: Colors.blue),),),
+                    child: Text("SignUp",style: TextStyle(color: Colors.blue),),),
               ],
             ),
             ElevatedButton(
               child: Text('Login'),
               onPressed: () {},
-            ),MyButton("Test")
+            ),MyButton("Test",(){})
           ],
               ),
         ),);
