@@ -3,12 +3,14 @@ import 'package:floating_action_bubble/floating_action_bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:prescrible/Pages/account_info.dart';
+import 'package:prescrible/Pages/adding_details.dart';
 import 'package:prescrible/Pages/doc_info.dart';
+import 'package:prescrible/Pages/login_page.dart';
 
 final imageList = [
-  "https://live.staticflickr.com/5256/5429636987_5f45004f62_b.jpg",
-  "https://pbs.twimg.com/media/DsTX3RiVYAIoyGA.jpg",
-  "https://mumbaimirror.indiatimes.com/img/82231966/Master.jpg"
+  "assets/prescriptions_Images/Prescriptions_1.jpg",
+  "assets/prescriptions_Images/Prescriptions_2.jpg",
+  "assets/prescriptions_Images/Prescriptions_3.jpg"
 ];
 
 class Hm extends StatefulWidget {
@@ -142,7 +144,10 @@ class _HmState extends State<Hm> with SingleTickerProviderStateMixin {
           ListTile(
             title: const Text('Log Out'),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => LoginPg()),
+              );
             },
           )
         ],
@@ -170,39 +175,71 @@ class _HmState extends State<Hm> with SingleTickerProviderStateMixin {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(6),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.green, shape: BoxShape.circle),
-                    height: 120,
-                    width: 120,
-                    //color: Colors.green,
+                  child: Column(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.green, shape: BoxShape.circle),
+                        height: 120,
+                        width: 120,
+                        //color: Colors.green,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("Dr.Abc"),
+                      ),
+                    ],
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(6),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.grey, shape: BoxShape.circle),
-                    height: 120,
-                    width: 120,
+                  child: Column(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.grey, shape: BoxShape.circle),
+                        height: 120,
+                        width: 120,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("Dr.Efg"),
+                      )
+                    ],
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(6),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.green, shape: BoxShape.circle),
-                    height: 120,
-                    width: 120,
+                  child: Column(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.green, shape: BoxShape.circle),
+                        height: 120,
+                        width: 120,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("Dr.Zxy"),
+                      )
+                    ],
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(6),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.grey, shape: BoxShape.circle),
-                    height: 120,
-                    width: 120,
+                  child: Column(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.grey, shape: BoxShape.circle),
+                        height: 120,
+                        width: 120,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("Dr.xyz"),
+                      )
+                    ],
                   ),
                 )
               ],
@@ -232,7 +269,7 @@ class _HmState extends State<Hm> with SingleTickerProviderStateMixin {
               items: imageList
                   .map((item) => Container(
                         child: Center(
-                            child: Image.network(item,
+                            child: Image.asset(item,
                                 fit: BoxFit.fill, width: 1000)),
                       ))
                   .toList(),
@@ -248,14 +285,14 @@ class _HmState extends State<Hm> with SingleTickerProviderStateMixin {
             Bubble(
               title: "Add",
               iconColor: Colors.white,
-              bubbleColor: Colors.blue,
+              bubbleColor: Colors.green,
               icon: Icons.add,
               titleStyle: TextStyle(fontSize: 16, color: Colors.white),
               onPress: () {
                 Navigator.push(
                     context,
                     new MaterialPageRoute(
-                        builder: (BuildContext context) => DocInformation()));
+                        builder: (BuildContext context) => Trtmnt_addingPG()));
                 _animationController!.reverse();
               },
             ),
@@ -274,7 +311,7 @@ class _HmState extends State<Hm> with SingleTickerProviderStateMixin {
           onPress: () => _animationController!.isCompleted
               ? _animationController!.reverse()
               : _animationController!.forward(),
-          iconColor: Colors.blue,
+          iconColor: Colors.green,
           iconData: Icons.add,
           backGroundColor: Colors.white,
         ),
