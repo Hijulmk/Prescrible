@@ -154,7 +154,8 @@ class _HmState extends State<Hm> with SingleTickerProviderStateMixin {
       )),
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Center(child: Text("PRESCRIBLE")),
+        centerTitle: true,
+        title: Text("PRESCRIBLE"),
       ),
       body: SingleChildScrollView(
         child: Column(children: [

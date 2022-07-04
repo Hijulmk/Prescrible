@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class AccountDetails extends StatefulWidget {
   const AccountDetails({Key? key}) : super(key: key);
@@ -15,6 +16,32 @@ class _AccountDetailsState extends State<AccountDetails> {
   TextEditingController heightCtrlr = TextEditingController();
   TextEditingController weightCtrlr = TextEditingController();
   TextEditingController passwordCtrlr = TextEditingController();
+
+  List<String> gender = [
+    'Gender',
+    'Male',
+    'Female',
+    'Transgender',
+  ];
+  String selectedGender = 'Gender';
+
+  DateTime? selectedDate;
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: DateTime(2000),
+        firstDate: DateTime(1930, 1),
+        lastDate: DateTime.now());
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+      });
+    }
+  }
+
+  // bool _buttonColor = true;
+  // bool _button2Color = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,16 +92,74 @@ class _AccountDetailsState extends State<AccountDetails> {
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                    child: TextField(
-                        controller: genderCtrlr,
-                        decoration: InputDecoration(labelText: 'Gender')),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            DropdownButton(
+                              value: selectedGender,
+                              onChanged: (newValue) {
+                                setState(() {
+                                  selectedGender = newValue.toString();
+                                });
+                              },
+                              items: gender.map((location) {
+                                return DropdownMenuItem(
+                                  child: new Text(location),
+                                  value: location,
+                                );
+                              }).toList(),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                    child: TextField(
-                        controller: dobCtrlr,
-                        decoration:
-                            InputDecoration(labelText: 'Date of birth')),
+                  Column(
+                    children: [
+                      Container(
+                        child: Row(
+                          children: [
+                            
+                            Row(
+                              mainAxisSize: MainAxisSize.min,mainAxisAlignment:MainAxisAlignment.spaceEvenly,
+                              children: [Padding(
+                                padding: const EdgeInsets.fromLTRB(20,0,0,0),
+                                child: Text("Date of Birth"),
+                              ),
+                                IconButton(
+                                    onPressed: () {
+                                      _selectDate(context);
+                                     
+                                    },icon: Icon(
+              Icons.calendar_month_rounded,
+            ),
+            iconSize: 20,
+            color: Colors.grey,
+                                    // child: Text(selectedDate == null
+                                    //     ? "Date of Birth"
+                                    //     : "Date of Birth"),
+                                    ),
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(60, 0, 0, 0),
+                                  child: Row(
+                                    children: [
+                                      Text(selectedDate == null
+                                          ? ""
+                                          : DateFormat('yMMMMEEEEd')
+                                              .format(selectedDate!)),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20.0,
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),

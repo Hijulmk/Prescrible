@@ -39,12 +39,12 @@ class _SignUpPgState extends State<SignUpPg> {
            Container(decoration: BoxDecoration(gradient: LinearGradient(begin: Alignment.topCenter,end: Alignment.bottomCenter,
           colors: [Colors.transparent,Colors.black],),),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            
             children: [
               Expanded(
                 child: Container(
-                  height: 200,
-                  width: 200,
+                  height: 100,
+                  width: 100,
                   child: Image.asset("assets/images/Quill_Feather_Pen_Logo_F.png"),
                 ),
               ),
@@ -80,7 +80,7 @@ class _SignUpPgState extends State<SignUpPg> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
                 child: TextField(
                   controller: passwrd,
                   obscureText: true,
@@ -89,6 +89,19 @@ class _SignUpPgState extends State<SignUpPg> {
                           borderSide: BorderSide(color: Colors.white, width: 2),
                           borderRadius: BorderRadius.circular(30)),
                       labelText: 'Confirm Password',
+                      labelStyle: TextStyle(color: Colors.white)),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                child: TextField(
+                  controller: passwrd,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white, width: 2),
+                          borderRadius: BorderRadius.circular(30)),
+                      labelText: 'Gender',
                       labelStyle: TextStyle(color: Colors.white)),
                 ),
               ),

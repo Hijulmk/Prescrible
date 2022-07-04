@@ -11,10 +11,11 @@ class Trtmnt_addingPG extends StatefulWidget {
 }
 
 class _Trtmnt_addingPGState extends State<Trtmnt_addingPG> {
-  DateTime? selectedDate;
+
+
+
+DateTime? selectedDate;
   
-
-
 Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
         context: context,
@@ -59,8 +60,8 @@ Future<void> _selectDate(BuildContext context) async {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Center(child: Text("Treatment Information")),
+      appBar: AppBar(centerTitle: true,
+        title: Text("Treatment Information"),
       ),
       body: SingleChildScrollView(
         child: Column(
