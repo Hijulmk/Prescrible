@@ -107,17 +107,24 @@ class _HmState extends State<Hm> with SingleTickerProviderStateMixin {
                     CircleAvatar(
                       backgroundColor: Colors.white,
                       radius: 15,
-                      child: IconButton(
-                        padding: EdgeInsets.zero,
-                        icon: Icon(Icons.edit_outlined),
-                        color: Colors.green,
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AccountDetails()));
-                        },
-                      ),
+                      child: Stack(children: [
+                        IconButton(
+                          padding: EdgeInsets.zero,
+                          icon: Icon(Icons.edit_outlined),
+                          color: Colors.green
+                          ,onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => AccountDetails()));
+                          },
+                        ),
+                      Positioned( 
+              bottom: 0.0,
+              right: 0.0,
+              child: new Icon(Icons.brightness_1, size: 12.0, 
+                color: Colors.redAccent),
+            )]),
                     ),
                   ],
                 ),

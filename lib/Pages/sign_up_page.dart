@@ -38,10 +38,10 @@ class _SignUpPgState extends State<SignUpPg> {
 
            Container(decoration: BoxDecoration(gradient: LinearGradient(begin: Alignment.topCenter,end: Alignment.bottomCenter,
           colors: [Colors.transparent,Colors.black],),),
-          child: Column(
+          child: Column(crossAxisAlignment: CrossAxisAlignment.end,
             
             children: [
-              Expanded(
+              SafeArea(
                 child: Container(
                   height: 100,
                   width: 100,
